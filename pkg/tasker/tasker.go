@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"os/signal"
 	"path/filepath"
 	"reflect"
 	"strings"
@@ -267,7 +266,6 @@ func (t *Tasker) doSetup() {
 	}
 
 	sig := make(chan os.Signal, 1)
-	signal.Notify(sig, os.Interrupt, syscall.SIGTERM)
 
 	go func() {
 		select {
